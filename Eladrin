@@ -1,0 +1,103 @@
+SourceList["MToF"] = {
+	name : "Mordenkainen's Tome of Foes",
+	abbreviation : "MToF",
+	group : "Official Handbook",
+	date : "2018/05/22"
+};
+
+RaceList["eladrin elf"] = {
+	regExpSearch : /^(?!.*half)((?=.*eladrin)|((?=.*\b(elfs?|elves|elvish|elven)\b)(?=.*\b(feys?|feywild|eladrin)\b))).*$/i,
+	name : "Eladrin elf ",
+	sortname : "Elf, Eladrin",
+	source : ["MToF", 61],
+	plural : "Eladrin elves",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Elvish"],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		text : ["Magic can't put me to sleep"],
+		adv_vs : ["charmed"]
+	},
+	skills : ["Perception"],
+	age : " typically claim adulthood around age 100 and can live to be 750 years old",
+	height : " range from under 5 to over 6 feet tall (4'6\" + 2d12\")",
+	weight : " weigh around 115 lb (90 + 2d10 \xD7 1d4 lb)",
+	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
+	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
+	improvements : "Eladrin: +2 Dexterity, +1 Charisma;",
+	scores : [0, 2, 0, 0, 0, 1],
+	trait : desc([
+		"Eladrin (+2 Dexterity, +1 Intelligence or Charisma)",
+		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
+		"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
+		"Shifting Seasons: My Fey Step has an effect relating to my current season.",
+		]),
+	abilitySave : 6,
+	variants : ["season autumn", "season winter", "season spring", "season summer"],
+	spellcastingAbility : 6,
+	features : {
+		"fey step" : {
+			name : "Fey Step",
+			minlevel : 1,
+			usages : 1,
+			recovery : "short rest",
+			tooltip : "",
+			action : ["bonus action", ""]
+		},
+	},
+};
+AddRacialVariant("eladrin elf", "season autumn", {
+		regExpSearch : /autumn/i,
+		name : "Autumn Eladrin Elf",
+		source : ["MToF", 61],
+		trait : desc([
+			"Eladrin, Autumn (+2 Dexterity, +1 Intelligence or Charisma)",
+			"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
+			"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
+			"At 3rd Level, Fey Step causes 2 creatures within 10ft to make a Wisdom Save or be charmed for 1 minute.",
+			]),
+		eval : "RemoveAction('bonus action', 'Fey Step'); AddAction('bonus action', 'Fey Step (Autumn)', 'Autumn Eladrin Elf')",
+		removeeval : "RemoveAction('bonus action', 'Fey Step (Autumn)'); AddAction('bonus action', 'Fey Step', 'Eladrin Elf')"		
+});
+AddRacialVariant("eladrin elf", "season winter", {
+		regExpSearch : /winter/i,
+		name : "Winter Eladrin Elf",
+		source : ["MToF", 61],
+		trait : desc([
+			"Eladrin, Winter (+2 Dexterity, +1 Intelligence or Charisma)",
+			"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
+			"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
+			"At 3rd Level, Fey Step causes 1 creature within 5 ft before I teleport to make a Wisdom Save or be frightened until the end of my next turn.",
+			]),
+		eval : "RemoveAction('bonus action', 'Fey Step'); AddAction('bonus action', 'Fey Step (Winter)', 'Winter Eladrin Elf')",
+		removeeval : "RemoveAction('bonus action', 'Fey Step (Winter)'); AddAction('bonus action', 'Fey Step', 'Eladrin Elf')"		
+});
+AddRacialVariant("eladrin elf", "season spring", {
+		regExpSearch : /spring/i,
+		name : "Spring Eladrin Elf",
+		source : ["MToF", 61],
+		trait : desc([
+			"Eladrin, Spring (+2 Dexterity, +1 Intelligence or Charisma)",
+			"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
+			"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
+			"At 3rd Level, Fey Step allows me to touch 1 willing creature and teleport them to the space.",
+			]),
+		eval : "RemoveAction('bonus action', 'Fey Step'); AddAction('bonus action', 'Fey Step (Spring)', 'Spring Eladrin Elf')",
+		removeeval : "RemoveAction('bonus action', 'Fey Step (Spring)'); AddAction('bonus action', 'Fey Step', 'Eladrin Elf')"		
+});
+AddRacialVariant("eladrin elf", "season summer", {
+		regExpSearch : /summer/i,
+		name : "Summer Eladrin Elf",
+		source : ["MToF", 61],
+		trait : desc([
+			"Eladrin, Summer (+2 Dexterity, +1 Intelligence or Charisma)",
+			"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest only 4 hours).",
+			"Fey Step: Once per short rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
+			"At 3rd Level, Fey Step causes each creature within 5 ft of the space to take fire damage equal to my Charisma mod(minimum 1).",
+			]),
+		eval : "RemoveAction('bonus action', 'Fey Step'); AddAction('bonus action', 'Fey Step (Summer)', 'Summer Eladrin Elf')",
+		removeeval : "RemoveAction('bonus action', 'Fey Step (Summer)'); AddAction('bonus action', 'Fey Step', 'Eladrin Elf')"		
+});
