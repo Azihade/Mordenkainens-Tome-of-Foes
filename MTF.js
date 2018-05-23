@@ -542,16 +542,12 @@ RaceList["eladrin-mtof"] = {
 	},
 	notes : "Eladrin Season Features (MToF 62)" + "\n\u25C6 Autumn" + desc([
 		"Immediately after you use your Fey Step, up to two creatures of your choice that you can see within 10 feet of you must succeed on a Wisdom saving throw or be charmed by you for 1 minute, or until you or your companions deal any damage to it.",
-		""
 	]) + "\n\u25C6 Winter" + desc([
 		"When you use your Fey Step, one creature of your choice that you can see within 5 feet of you before you teleport must succeed on a Wisdom saving throw or be frightened of you until the end of your next turn.",
-		""
 	]) + "\n\u25C6 Spring" + desc([
 		"When you use your Fey Step, you can touch one willing creature within 5 feet of you. That creature then teleports instead of you, appearing in an unoccupied space of your choice that you can see within 30 feet of you.",
-		""
 	]) + "\n\u25C6 Summer" + desc([
 		"Immediately after you use your Fey Step, each creature of your choice that you can see within 5 feet of you takes fire damage equal to your Charisma modifier (minimum of 1 damage).",
-		""
 	]),
 	eval : "AddString('Extra.Notes', RaceList['eladrin-mtof'].notes, true); Value('Extra.Layers Remember', 'notes,' + What('Extra.Layers Remember').split(',')[1]); LayerVisibilityOptions(false);",
 	removeeval : "RemoveString('Extra.Notes', RaceList['eladrin-mtof'].notes, true);"
